@@ -1,0 +1,22 @@
+.field
+  = check_box_tag   :email_notify, 1, notification.default?, |
+    :checked => false, :class => 'email_checkbox'            |
+  = label_tag       :email_notify, t('.email_notification')
+  - unless user_kinds.empty?
+    .optional
+      %ul
+        - user_kinds.each do |user_kind|
+          %li
+            = check_box_tag "#{nf.object_name}[roles][]", user_kind, nil
+            = label_tag "#{nf.object_name}[roles][#{user_kind}]", user_kind.titleize
+  .optional_lightbox{:style => "display:none"}
+    = nf.hidden_field :kind, :disabled => !notification.default?
+    = link_to '#', '#email-template', :class => 'submit_fancybox', :id => 'link-to-email-template'
+    #email-template
+      %h2= t('.format_email')
+      .field
+        = nf.text_area :content, :class => 'email_content', :disabled => !notification.default?
+      .field
+        = submit_tag t('.send_email'), :id => 'email_submit'
+        = t('.or')
+        = link_to t('.cancel'), '#', :id => 'email_cancel'

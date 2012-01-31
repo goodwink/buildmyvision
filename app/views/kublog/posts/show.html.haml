@@ -1,0 +1,39 @@
+.post-actions
+  %h2= t('.post_actions')
+  %ul
+    - if is_admin?
+      %li= link_to t('.edit'),  [:edit, @presenter.post]
+      %li= link_to t('.delete'), @presenter.post, :method => :delete, :confirm => t('.confirm')
+    %li
+      = link_to 'All posts', posts_path
+.post-title
+  %h1= @presenter.post
+  %span.published-at= l @presenter.post.updated_at, :format => :short
+.post-pody
+  = @presenter.post.body.html_safe
+.post-comments
+  - @presenter.comments.each do |comment|
+    %div{:class => "comment #{admin_comment?(comment)}"}
+      %h4= comment.author
+      %p.body= comment.body
+      %span= l comment.created_at, :format => :short
+      - if is_admin?
+        .admin-actions
+          = link_to t('.delete'), post_comment_path(@presenter.post, comment), |
+            :method => :delete, :confirm => t('.confirm'),                     |
+            :class=> 'delete'                                                  |
+.new-comment
+  %h2= t('.new_comment')
+  = form_for [@presenter.post, Kublog::Comment.new], :remote => true do |f|
+    = f.text_area :body, :rows => 5, :cols => 20, :class => 'small'
+    %br/
+    - unless current_user
+      = f.label :author_name
+      %br/
+      = f.text_field :author_name
+      %br/
+      = f.label :author_email
+      %br/
+      = f.text_field :author_email
+      %br/
+    = f.submit

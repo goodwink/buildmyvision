@@ -10,7 +10,6 @@ gem 'rails', '3.2.1'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -19,19 +18,28 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'mongoid'
-gem 'bson_ext'
 gem 'simple_form'
 gem 'show_for'
-gem 'devise'
+gem 'devise', '~> 2.0.0'
 gem 'kaminari'
 gem 'haml', '>= 3.1.4'
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 
+gem 'kublog'
+gem 'inherited_resources'
+gem 'activeadmin'
+gem 'sass-rails', '~> 3.2.3'
+gem 'meta_search', '>= 1.1.0.pre'
+
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.8.1'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # To use ActiveModel has_secure_password

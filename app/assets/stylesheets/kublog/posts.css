@@ -1,0 +1,39 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+#kublog textarea#post_body, #kublog textarea.email_content{
+  width:500px;
+}
+
+#kublog div.optional{
+  display:none;
+}
+
+#kublog textarea.small{
+  width:250px;
+  display:block;
+}
+
+#kublog .field{
+  margin:10px 0px;
+}
+
+/* Sets up a little margin for Wysiwyg editor */
+
+#kublog .toolbar li{
+  margin:0px 8px 3px 0px;
+}
+
+#kublog label.error{
+  color:#f00; 
+}
+
+#kublog input.error,#kublog textarea.error{
+  border:1px solid red;
+}
+
+small.error_description{
+  margin-left:5px;
+}

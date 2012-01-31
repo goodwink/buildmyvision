@@ -1,0 +1,22 @@
+= form_for post, :html => {:class => 'post_form'} do |f|
+  = error_messages_for post
+  .main-attributes
+    .field
+      = f.label :body
+      %br/
+      = f.text_area :body, :class => 'editor'
+      = render 'image_form'
+    .field
+      = f.label :title
+      %br/
+      = f.text_field :title, :class => 'original'
+    .field
+      = f.label :category_id
+      %br/
+      = select_tag 'post[category_id]', category_options(post).html_safe
+  .sharing-attributes
+    - notifications.each do |notification|
+      = f.fields_for :notifications, notification do |nf|
+        = render "#{notification.kind}_form", :notification => notification, :nf => nf
+  .submit.field
+    = f.submit :id => 'create_post_button'
