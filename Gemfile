@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
+gem 'thin'
 
 # UI Frameworks
 gem 'haml', '>= 3.1.4'
@@ -13,15 +14,22 @@ gem 'simple_form'
 gem 'show_for'
 gem 'kaminari'
 
+# Data Storage
+gem 'redis'
+
 # Controller Helpers
 gem 'inherited_resources'
 
 # Security
 gem 'devise', '~> 2.0.0'
 
-#Admin
+# Admin
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
+
+# Feature control
+gem 'rollout'
+#gem 'degrade'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
@@ -32,6 +40,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.8.1'
   gem 'sqlite3'
+  gem 'foreman'
 end
 
 group :production do
