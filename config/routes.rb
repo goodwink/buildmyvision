@@ -5,5 +5,4 @@ Buildmyvision::Application.routes.draw do
 
   devise_for :users
 
-  mount Kublog::Engine => "/blog(.:format)"
 end

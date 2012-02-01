@@ -1,9 +1,0 @@
-.field
-  = check_box_tag :twitter_notify, 1, notification.default?, :class => 'trigger-optional'
-  = label_tag     :twitter_notify, t('.twitter_notification')
-  .optional{:style => display?(notification.default?)}
-    %span.chars_left 129
-    = nf.hidden_field :kind, :disabled => !notification.default?
-    = nf.text_area    :content, :rows => 5, :cols => 10, :maxlength => 129, :value => '', |
-      :disabled => !notification.default?, :class => 'small mimic'                        |
-    %small= t('.link_to_twitter')
