@@ -31,6 +31,10 @@ gem 'meta_search', '>= 1.1.0.pre'
 gem 'rollout'
 #gem 'degrade'
 
+# External APIs
+gem 'ruby-trello', :git => 'https://github.com/jeremytregunna/ruby-trello.git'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer'

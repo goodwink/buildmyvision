@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/jeremytregunna/ruby-trello.git
+  revision: 0cd706a5ff1c26d5b2194f9758bd3350f9cfaa86
+  specs:
+    ruby-trello (0.2.1)
+      addressable (~> 2.2.6)
+      oauth (~> 0.4.5)
+      yajl-ruby (>= 1.1.0)
+
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: da996f99c3f318f5bafa9da89f140fe5c05bfdb2
+  specs:
+    stripe (1.6.0)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +55,7 @@ GEM
     activesupport (3.2.1)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    addressable (2.2.6)
     arel (3.0.0)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (1.4.4)
@@ -99,6 +116,7 @@ GEM
       polyamorous (~> 0.5.0)
     mime-types (1.17.2)
     multi_json (1.0.4)
+    oauth (0.4.5)
     orm_adapter (0.0.6)
     pg (0.12.2)
     polyamorous (0.5.0)
@@ -131,6 +149,8 @@ GEM
       json (~> 1.4)
     redis (2.2.2)
     responders (0.6.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rollout (1.0.0)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
@@ -177,6 +197,7 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.0)
       rack (>= 1.0)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -197,10 +218,12 @@ DEPENDENCIES
   redis
   rollout
   rspec-rails (~> 2.8.1)
+  ruby-trello!
   sass-rails (~> 3.2.3)
   show_for
   simple_form
   sqlite3
+  stripe!
   therubyracer
   thin
   uglifier (>= 1.0.3)
