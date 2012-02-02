@@ -7,7 +7,7 @@ gem 'thin'
 gem 'haml', '>= 3.1.4'
 gem 'sass-rails', '~> 3.2.3'
 gem 'jquery-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 2.0.0', git: 'https://github.com/thomas-mcdonald/bootstrap-sass.git', branch: '2.0'
 
 # UI Helpers
 gem 'simple_form'
@@ -32,8 +32,9 @@ gem 'rollout'
 #gem 'degrade'
 
 # External APIs
-gem 'ruby-trello', :git => 'https://github.com/jeremytregunna/ruby-trello.git'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'ruby-trello', git: 'https://github.com/jeremytregunna/ruby-trello.git'
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+# Sunnytrail, GET to https://i.thesunnytrail.com/api?api_key=BPVLbhXSXg&source=rest&email=EMAIL
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

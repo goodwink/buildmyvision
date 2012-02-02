@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   before_filter :feature_filter
 
   def rollout?(name)
-    $rollout.active? name, current_user
+    if current_user
+      $rollout.active? name, current_user
+    else
+      false
+    end
   end
 
   def feature_filter
