@@ -1,10 +1,15 @@
-%h2 Sign up
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = f.error_notification
-  .inputs
-    = f.input :email, :required => true, :autofocus => true
-    = f.input :password, :required => true
-    = f.input :password_confirmation, :required => true
-  .actions
-    = f.button :submit, "Sign up"
-= render "links"
+.row
+  .span8
+    %h2 Let's get your startup off the ground...
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      %fieldset
+        %legend Step 2: Founder information
+
+        = f.error_notification
+        = f.input :email, :required => true, :autofocus => true
+        = f.input :password, :required => true
+        = f.input :password_confirmation, :required => true
+        = f.input :customer_id, :as => :hidden, input_html: { value: flash[:customer_id] }
+
+        .form-actions
+          = f.button :submit, "Submit", class: 'btn-primary'
