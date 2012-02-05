@@ -40,6 +40,7 @@ gem 'httparty'
 # Operational Support
 gem 'newrelic_rpm'
 gem 'airbrake'
+gem 'google-analytics-rails', git: 'https://github.com/bgarret/google-analytics-rails.git'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

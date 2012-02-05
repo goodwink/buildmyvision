@@ -63,4 +63,6 @@ Buildmyvision::Application.configure do
 
   config.assets.precompile += %w[active_admin.css active_admin.js]
 
+  GA.tracker = 'UA-28960816-1'
+
 end

@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/bgarret/google-analytics-rails.git
+  revision: 73e42e4f8479897e233d783224cbccc1f24496dc
+  specs:
+    google-analytics-rails (0.0.1)
+
+GIT
   remote: https://github.com/jeremytregunna/ruby-trello.git
   revision: 965bf728578e68b5e1bfeb0e29db34d49478e653
   specs:
@@ -228,6 +234,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise (~> 2.0.0)
   foreman
+  google-analytics-rails!
   haml (>= 3.1.4)
   httparty
   inherited_resources
