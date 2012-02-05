@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_protected :staff, :alpha, :beta
 
-  after_create :publish_lead
+  before_create :publish_lead
 
   def publish_lead
     SunnyTrail.new.new_signup(self.email)

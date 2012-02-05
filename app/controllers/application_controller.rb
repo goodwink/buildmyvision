@@ -16,4 +16,12 @@ class ApplicationController < ActionController::Base
   end
   
   helper_method :rollout?   
+
+  def after_sign_in_path_for(resource)
+    if resource == :user
+      new_project_url
+    else
+      super
+    end
+  end
 end
