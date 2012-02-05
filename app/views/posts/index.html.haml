@@ -1,0 +1,13 @@
+%h2 Lean Startup Development Blog
+
+.row
+  .span8
+    - @posts.each do |post|
+      .post
+        %h3= link_to post.title, post_path(post)
+        = post.content[0..50] + "..."
+  .span4
+    .row
+      %h3 Links We Like
+    .row
+      %h3 Reading We Recommend

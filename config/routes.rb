@@ -5,6 +5,7 @@ Buildmyvision::Application.routes.draw do
   devise_for :users
 
   resources :customers
+  resources :posts, path: 'lean-startup-development-blog'
 
   root to: "root#index"
   match 'about' => 'root#about', :as => :about

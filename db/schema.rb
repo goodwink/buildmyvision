@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120204193627) do
+ActiveRecord::Schema.define(:version => 20120205210921) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(:version => 20120204193627) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "consultants", :force => true do |t|
+    t.integer  "admin_user_id"
+    t.integer  "days_per_project"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "customers", :force => true do |t|
     t.string   "email"
     t.string   "name"
@@ -53,6 +60,17 @@ ActiveRecord::Schema.define(:version => 20120204193627) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "features", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "priority"
+    t.boolean  "mvp_approved"
+    t.string   "trello_card_id"
+    t.integer  "project_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "kublog_categories", :force => true do |t|
@@ -115,6 +133,50 @@ ActiveRecord::Schema.define(:version => 20120204193627) do
   add_index "kublog_posts", ["slug"], :name => "index_kublog_posts_on_slug", :unique => true
   add_index "kublog_posts", ["title"], :name => "index_kublog_posts_on_title"
   add_index "kublog_posts", ["user_id"], :name => "index_kublog_posts_on_user_id"
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.integer  "author_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pricing_models", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "target_market"
+    t.integer  "pricing_model_id"
+    t.text     "description"
+    t.string   "status"
+    t.string   "trello_card_id"
+    t.integer  "schedule_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "schedules", :force => true do |t|
+    t.integer  "project_id"
+    t.datetime "complete_by"
+    t.integer  "consultant_id"
+    t.datetime "delivered_on"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "unavailable_schedules", :force => true do |t|
+    t.integer  "consultant_id"
+    t.datetime "starts_on"
+    t.datetime "ends_on"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
