@@ -6,7 +6,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.dom_class = 'nav'
 
     primary.item :home, 'Home', root_path
-    primary.item :about, 'Who We Are', about_path
+    #primary.item :about, 'Who We Are', about_path
     primary.item :contact, 'Contact Us', 'mailto:questions@devscoop.com'
   end
 

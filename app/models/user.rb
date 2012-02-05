@@ -15,5 +15,7 @@ class User < ActiveRecord::Base
   def publish_lead
     SunnyTrail.new.new_signup(self.email)
     Trello::Card.create(name: self.email, list_id: '4f29d03821403b8c28acf14c')
+
+    true
   end
 end

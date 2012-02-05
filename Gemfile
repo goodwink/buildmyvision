@@ -34,8 +34,12 @@ gem 'rollout'
 
 # External APIs
 gem 'ruby-trello', git: 'https://github.com/jeremytregunna/ruby-trello.git'
-gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby.git'
 gem 'httparty'
+
+# Operational Support
+gem 'newrelic_rpm'
+gem 'airbrake'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

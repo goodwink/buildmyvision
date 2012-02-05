@@ -6,5 +6,7 @@ class Project < ActiveRecord::Base
       name: self.name,
       description: self.description,
       list_id: '4f29d03821403b8c28acf14d').id
+
+    true
   end
 end
