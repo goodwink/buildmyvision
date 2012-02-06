@@ -1,5 +1,8 @@
 .row
   .span8
-    %h2= @post.title
-    %p= @post.content
+    %h3= @post.title
+    %h5= "Posted by #{@post.author.display_name} at #{@post.created_at.strftime('%D %r')}"
+    %p
+    %p
+      = @post.content
     .disqus_thread

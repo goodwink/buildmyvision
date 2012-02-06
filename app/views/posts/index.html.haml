@@ -1,13 +1,15 @@
 %h2 Lean Startup Development Blog
+%p
 
 .row
   .span8
     - @posts.each do |post|
       .post
         %h3= link_to post.title, post_path(post)
-        = post.content[0..50] + "..."
+        %h5= "Posted by #{post.author.display_name} at #{post.created_at.strftime('%D %r')}"
+        %p
+        %p
+          = post.content[0..250]
+          - if post.content.length > 250
+            = "..."
   .span4
-    .row
-      %h3 Links We Like
-    .row
-      %h3 Reading We Recommend
